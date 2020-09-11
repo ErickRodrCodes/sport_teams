@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import fetch from 'node-fetch'
 import './App.css';
 import TeamTemplate from './Components/TeamTemplate';
-import start from './start.png'
+import start from './Components/TeamTemplate/start.png'
 
 function App() {
 
@@ -88,7 +88,7 @@ function App() {
         <div className="RightSide">
             {
             team === "default" ? (<>
-            <img src={start} alt="start"/>
+            <img className="imgStart" src={start} alt="start" />
             </>) : (
             <>
               <TeamTemplate {...dataTeam} /> 
