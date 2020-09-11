@@ -1,0 +1,82 @@
+
+.LeftSide{
+  width:auto;
+  max-width: 202px;
+}
+
+.RightSide {
+    padding-left: 20px;
+}
+
+.TeamName {
+    font-family: 'Alfa Slab One';
+    font-weight: 100;
+    margin:auto 10px;
+}
+
+.TeamLogo{
+    margin:auto 10px;
+}
+
+.TeamDescription{
+    line-height: 170%;
+}
+
+
+.TeamLogo img {
+    height:100px;
+    width: auto;
+    
+}
+
+.TeamContent {
+    padding:0 20px
+}
+
+.TeamIdentity {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.TeamInfo{
+    display:block;
+    position: relative
+}
+.TeamStadium{
+    float: left;
+}
+.TeamStadium img{
+    height: 300px;
+    width:auto;
+    margin-right:20px;
+}
+
+.TeamStadium p{
+    text-align: center;
+    font-size: 12px;
+}
+
+
+.TeamDescription {
+    margin-top: 0;
+}
+
+.FanaticsArtwork {
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.FanaticsArtwork img {
+    height:150px;
+}
+
+.SocialMediaTeam {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.SocialMediaTeam a {
+    margin: auto 10px;
+}

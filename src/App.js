@@ -1,19 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import fetch from 'node-fetch'
 import './App.css';
-
-const PageTemplate = (props) => {
-  console.log({props})
-  return (
-  <ul>
-    <li>Official Name: {props.team}</li>
-    <li>Alternate Name: {props.alternate} </li>
-    <li>Site: {props.stadium}</li>
-    <li>URL: {props.url}</li>
-    <li>Description: {props.description}</li>
-  </ul>
-)}
-
+import TeamTemplate from './Components/TeamTemplate';
+import start from './start.png'
 
 function App() {
 
@@ -65,16 +54,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1 class="AppTitle">New York City Sports Fan Site</h1>
+      <h1 className="AppTitle">New York City Sports Fan Site</h1>
       <header className="App-header">
-        
+        <div className="LeftSide">
         <p>Select a Sport, then pick a team!</p>
         <select disabled={loading}
         value={sport}
         onChange={handleChangeSport}>
           {[
-            <option value="default">Select a sport from the list</option>,
-            ...listOfSports.map(item => <option value={item}>{item}</option>)
+            <option value="default" key="sport-default">Select a sport from the list</option>,
+            ...listOfSports.map((item, idx) => <option value={item} key={`sport-${idx}`}>{item}</option>)
           ]}
         </select>
         {sport === "default"
@@ -87,25 +76,26 @@ function App() {
         <select 
           value={team}
           onChange={handleChangeOfTeam}>
-           {[
-            <option value="default">Select a Team from the list</option>,
-            ...listofTeamsOnList.sort().map(item => <option value={item}>{item}</option>)
+          {[
+            <option value="default" key="selection-default">Select a Team from the list</option>,
+            ...listofTeamsOnList.sort().map((item,idx) => <option value={item} key={`selection-${idx}`}>{item}</option>)
           ]}
         </select>
         </>
         )
         }
-        {
-          team === "default" ? (null) : (<div>
-            <PageTemplate 
-              team={dataTeam.strTeam}
-              alternate ={dataTeam.strAlternate} 
-              stadium={dataTeam.strStadium}
-              url={dataTeam.strWebsite}
-              description={dataTeam.strDescriptionEN}
-              /> 
-          </div>) 
-        }
+        </div>
+        <div className="RightSide">
+            {
+            team === "default" ? (<>
+            <img src={start} alt="start"/>
+            </>) : (
+            <>
+              <TeamTemplate {...dataTeam} /> 
+            </>
+            ) 
+          }
+        </div>
       </header>
     </div>
   );
